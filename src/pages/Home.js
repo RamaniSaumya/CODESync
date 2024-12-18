@@ -4,6 +4,7 @@ import { CiRoute } from "react-icons/ci";
 import { v4 as uuidV4 } from "uuid";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom"; // Changed from Navigate to useNavigate
+import Header from "../Header";
 // import "./Homestyle.css";
 
 const Home = () => {
@@ -50,6 +51,8 @@ const Home = () => {
 
   return (
     <div className="homePageWrapper">
+      <Header/>
+      <div className="main">
       <div className="formWrapper">
         {/* <CiRoute  className="logo"/> */}
         <motion.div
@@ -88,6 +91,10 @@ const Home = () => {
           </span>
         </div>
       </div>
+
+
+      </div>
+
 
       <footer>
         <h5>
