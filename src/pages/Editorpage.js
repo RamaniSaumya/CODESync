@@ -147,7 +147,9 @@ const EditorPage = () => {
         <option value="hopscotch">hopscotch</option>
         <option value="monokai">monokai</option>
         <option value="github">github</option>
-       
+        <option value="material">material</option>
+        <option value="darcula">darcula</option>
+        <option value="the-matrix">the-matrix</option>
       </select>
       </div>
     </div>
