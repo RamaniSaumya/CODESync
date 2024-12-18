@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+# What project is about ? ?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project is mainly based on the idea of "Working Together".
+It enables users to create rooms as per their convenience and can invite multiple users to their room so that they can work on their project together. 
 
-## Available Scripts
+## Tech Stack.
 
-In the project directory, you can run:
+The tech stack of the project is relatively simpler one because it uses REACT for the frontend, normal CSS for beautifcation and for concurrency, socket programming is used.
+Now socket programming can be used through many ways, but here I have used the SOCKET.IO framework of NODE.JS that supports the functionalities such as creating socket, its references, passing the code to the sockets, etc...
 
 ### `npm start`
 
