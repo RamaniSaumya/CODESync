@@ -5,7 +5,7 @@ import initSocket from "../socket";
 import { Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import ACTIONS from "../Action";
 import toast from "react-hot-toast";
-import Header from "../Header";
+// import Header from "../Header";
 
 const EditorPage = () => {
   const socketRef = useRef(null);
@@ -87,7 +87,7 @@ const EditorPage = () => {
 
   return (
     <div className="mainWrap">
-      <Header/>
+      {/* <Header/> */}
       <div className="aside">
         <div className="asideInner">
           <div>
