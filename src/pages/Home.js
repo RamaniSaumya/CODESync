@@ -89,10 +89,6 @@ const Home = () => {
         </div>
       </div>
 
-
-      </div>
-
-
       <footer>
         <h5>
           Built by <a href="https://github.com/RamaniSaumya">Saumya Ramani</a>
