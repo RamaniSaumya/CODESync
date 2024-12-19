@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import ACTIONS from "../Action";
 import toast from "react-hot-toast";
+import Header from "../Header";
 
 const EditorPage = () => {
   const socketRef = useRef(null);
@@ -100,6 +101,7 @@ const EditorPage = () => {
 
   return (
     <div className="mainWrap">
+      <Header/>
       <div className="aside">
         <div className="asideInner">
           <div>
@@ -135,7 +137,7 @@ const EditorPage = () => {
         <Editor
           socketRef={socketRef}
           roomId={roomId}
-          theme={theme} // Pass the theme state to the Editor component if needed
+   // Pass the theme state to the Editor component if needed
           onCodeChange={(code) => {
             codeRef.current = code;
           }}

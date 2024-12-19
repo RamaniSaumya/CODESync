@@ -13,7 +13,7 @@ import "codemirror/addon/edit/closebrackets";
 import "codemirror/addon/edit/closetag";
 import ACTIONS from "../Action";
 
-const Editor = ({ socketRef, roomId, theme, onCodeChange }) => {
+const Editor = ({ socketRef, roomId,onCodeChange }) => {
   const editorRef = useRef(null);
 
   useEffect(() => {
