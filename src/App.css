@@ -152,6 +152,8 @@ footer a {
 
 
 
+
+
 .footer1{
   display: flex;
   align-items: center;
@@ -187,83 +189,4 @@ footer a {
 .leaveBtn:hover {
   background-color: aquamarine;
 }
-
-
-
-.main{
-  display: flex; /* Enable Flexbox */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 80vh; /* Full viewport height */
-  background-color: #333635;
-}
-
-
-
-
-/* Styles for Header Component */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: var(--background);
-  color: var(--text-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.header h1 {
-  font-size: 1.5em;
-  color: var(--text-color);
-}
-
-.header .links {
-  display: flex;
-  align-items: center;
-}
-
-.header .links a {
-  text-decoration: none;
-}
-
-.header .links .link {
-  margin: 0 10px;
-  color: var(--text-color);
-  font-size: 1em;
-  transition: color 0.3s;
-}
-
-.header .links .link:hover {
-  color: var(--blue);
-}
-
-.header .drawer-component {
-  display: none; /* Hide the drawer component if not in use */
-}
-
-/* Light Theme Variables */
-:root {
-  --background: #ffffff;
-  --text-color: #333333;
-  --blue: #0073e6;
-}
-
-/* Dark Theme Variables */
-:root[data-theme='dark'] {
-  --background: #333333;
-  --text-color: #ffffff;
-  --blue: #1e90ff;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 

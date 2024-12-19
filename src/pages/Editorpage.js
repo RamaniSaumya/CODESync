@@ -119,7 +119,6 @@ const EditorPage = () => {
         <Editor
           socketRef={socketRef}
           roomId={roomId}
-          theme={theme} // Pass the theme state to the Editor component if needed
           onCodeChange={(code) => {
             codeRef.current = code;
           }}

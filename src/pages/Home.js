@@ -89,14 +89,15 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="footer1">
-      <footer style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
-  <h5>
-    Built by <a href="https://github.com/RamaniSaumya">Saumya Ramani</a>
-  </h5>
-</footer>
 
       </div>
+
+
+      <footer>
+        <h5>
+          Built by <a href="https://github.com/RamaniSaumya">Saumya Ramani</a>
+        </h5>
+      </footer>
     </div>
   );
 };
