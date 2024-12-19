@@ -2,12 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Client from "../components/Client";
 import Editor from "../components/Editor";
 import initSocket from "../socket";
-import {
-  Navigate,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import ACTIONS from "../Action";
 import toast from "react-hot-toast";
 import Header from "../Header";
@@ -19,7 +14,6 @@ const EditorPage = () => {
   const { roomId } = useParams();
   const reactNavigator = useNavigate();
   const [clients, setClients] = useState([]);
-  const [theme, setTheme] = useState("3024-night"); // State for storing the selected theme
 
   async function copyRoomId() {
     try {
@@ -53,21 +47,18 @@ const EditorPage = () => {
       });
 
       // listening for joined event
-      socketRef.current.on(
-        ACTIONS.JOINED,
-        ({ clients, username, socketId }) => {
-          if (username !== location.state?.userName) {
-            toast.success(`${username} joined`);
-            console.log(`${username} joined`);
-          }
-          setClients(clients);
-
-          socketRef.current.emit(ACTIONS.SYNC_CODE, {
-            code: codeRef.current,
-            socketId,
-          });
+      socketRef.current.on(ACTIONS.JOINED, ({ clients, username, socketId }) => {
+        if (username !== location.state?.userName) {
+          toast.success(`${username} joined`);
+          console.log(`${username} joined`);
         }
-      );
+        setClients(clients);
+
+        socketRef.current.emit(ACTIONS.SYNC_CODE, {
+          code: codeRef.current,
+          socketId,
+        });
+      });
 
       // after disconnecting
       socketRef.current.on(ACTIONS.DISCONNECTED, ({ socketId, username }) => {
@@ -94,11 +85,6 @@ const EditorPage = () => {
     return <Navigate to="/" />;
   }
 
-  const handleThemeChange = (event) => {
-    setTheme(event.target.value); // Update the theme state when a new option is selected
-    console.log("Selected Theme:", event.target.value); // For debugging purposes
-  };
-
   return (
     <div className="mainWrap">
       <Header/>
@@ -112,15 +98,11 @@ const EditorPage = () => {
                 alt="logo of the website"
               />
             </div>
-            <h3>
-              Connected <span style={{ color: "orange" }}>CODERS</span>
-            </h3>
+            <h3>Connected <span style={{ color: 'orange' }}>CODERS</span></h3>
             <div className="clientsList">
-              {clients
-                .filter((_, index) => index % 2 !== 0)
-                .map((client) => (
-                  <Client username={client.username} key={client.socketId} />
-                ))}
+              {clients.filter((_, index) => index % 2 !== 0).map((client) => (
+                <Client username={client.username} key={client.socketId} />
+              ))}
             </div>
           </div>
           <div className="btnGroup">
@@ -137,22 +119,11 @@ const EditorPage = () => {
         <Editor
           socketRef={socketRef}
           roomId={roomId}
-   // Pass the theme state to the Editor component if needed
+          theme={theme} // Pass the theme state to the Editor component if needed
           onCodeChange={(code) => {
             codeRef.current = code;
           }}
         />
-      </div>
-      <div>
-      <select name="theme" id="theme" onChange={handleThemeChange} value={theme}>
-        <option value="3024-night">3024-night</option>
-        <option value="hopscotch">hopscotch</option>
-        <option value="monokai">monokai</option>
-        <option value="github">github</option>
-        <option value="material">material</option>
-        <option value="darcula">darcula</option>
-        <option value="the-matrix">the-matrix</option>
-      </select>
       </div>
     </div>
   );
