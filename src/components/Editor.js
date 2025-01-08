@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import CodeMirror from 'codemirror';
 import 'codemirror/theme/hopscotch.css';
 import 'codemirror/lib/codemirror.css';
@@ -7,56 +7,64 @@ import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/addon/edit/closetag';
 import ACTIONS from '../Action';
 
-const Editor = ({ socketRef, roomId ,onCodeChange}) => {
+const Editor = ({ socketRef, roomId, onCodeChange }) => {
   const editorRef = useRef(null);
 
   useEffect(() => {
-    const init = async () => {
-      editorRef.current = CodeMirror.fromTextArea(document.getElementById('realtimeEditor'), {
-        mode: { name: 'javascript', json: true },
-        theme: 'hopscotch',
-        autoCloseTags: true,
-        autoCloseBrackets: true,
-        lineNumbers: true,
-      });
+    // Initialize CodeMirror editor
+    editorRef.current = CodeMirror.fromTextArea(document.getElementById('realtimeEditor'), {
+      mode: { name: 'javascript', json: true },
+      theme: 'hopscotch',
+      autoCloseTags: true,
+      autoCloseBrackets: true,
+      lineNumbers: true,
+    });
 
-      editorRef.current.on('change', (instance, changes) => {
-        const { origin } = changes;
-        const code = instance.getValue();
-        onCodeChange(code)
-        if (origin !== 'setValue' && socketRef.current) {
-          console.log("kaam kare chhe ")
-          socketRef.current.emit(ACTIONS.CODE_CHANGE, {
-            roomId,
-            code,
-          });
-        }
-      });
-    };
+    const editor = editorRef.current;
 
-    init();
-  }, [roomId, socketRef]);
+    // Listen for editor changes
+    editor.on('change', (instance, changes) => {
+      const { origin } = changes;
+      const code = instance.getValue();
+      onCodeChange(code); // Call the provided onCodeChange function
 
-
-  useEffect(()=>{
-
-      if (socketRef.current) {
-        socketRef.current.on(ACTIONS.CODE_CHANGE, ({ code }) => {
-          console.log('receiving', code)
-          if (code !== null) {
-            editorRef.current.setValue(code);
-          }
+      // Emit code change to socket
+      if (origin !== 'setValue' && socketRef.current) {
+        socketRef.current.emit(ACTIONS.CODE_CHANGE, {
+          roomId,
+          code,
         });
       }
-    
-   if(socketRef.current) {  return ()=>{
-        socketRef.current.off(ACTIONS.CODE_CHANGE)
-      }}
-  },[socketRef.current]);
+    });
 
-  return (
-    <textarea id='realtimeEditor'></textarea>
-  );
+    // Cleanup on unmount
+    return () => {
+      if (editor) {
+        editor.toTextArea();
+      }
+    };
+  }, [roomId, onCodeChange, socketRef]);
+
+  useEffect(() => {
+    const handleCodeChange = ({ code }) => {
+      if (code !== null && editorRef.current) {
+        editorRef.current.setValue(code);
+      }
+    };
+
+    if (socketRef.current) {
+      socketRef.current.on(ACTIONS.CODE_CHANGE, handleCodeChange);
+    }
+
+    // Cleanup event listener on unmount
+    return () => {
+      if (socketRef.current) {
+        socketRef.current.off(ACTIONS.CODE_CHANGE, handleCodeChange);
+      }
+    };
+  }, [socketRef]);
+
+  return <textarea id="realtimeEditor"></textarea>;
 };
 
 export default Editor;
