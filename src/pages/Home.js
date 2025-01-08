@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 // import { CiRoute } from "react-icons/ci";
 import { v4 as uuidV4 } from "uuid";
-// import toast, { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom"; // Changed from Navigate to useNavigate
 // import "./Homestyle.css";
 
