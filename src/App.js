@@ -3,6 +3,9 @@ import Home from "./pages/Home";
 import Editorpage from "./pages/Editorpage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import Login from "./components/Login";
+import Register from "./components/Register";
+
 
 function App() {
   return (
@@ -23,8 +26,10 @@ function App() {
       </div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login/>} />
+          <Route path="/after_login" element={<Home />} />
           <Route path="/editor/:roomId" element={<Editorpage />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </>
