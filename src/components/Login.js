@@ -57,7 +57,8 @@ function LoginPage() {
         </div>
         <button type="submit" className="login-button">Login</button>
       </form>
-      <button onClick={handleRegister} className="register-button">Register</button>
+      <p>To register the user, <a href="http://localhost:3000/register" target="_blank">please click</a></p>
+
     </div>
   );
 }

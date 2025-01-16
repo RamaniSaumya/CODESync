@@ -10,7 +10,7 @@ function Register() {
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent page reload on form submission
+    event.preventDefault();
     try{
         await createUserWithEmailAndPassword(auth,email,password);
         const user=auth.currentUser;
