@@ -30,7 +30,8 @@ function LoginPage() {
   };
 
   return (
-    <div className="login-container">
+   <div className='loginpage'>
+     <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit} className="login-form">
         <div className="form-group">
@@ -38,6 +39,7 @@ function LoginPage() {
           <input
             type="email"
             id="email"
+            className='email-input'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -60,6 +62,7 @@ function LoginPage() {
       <p>To register the user, <a href="http://localhost:3000/register" target="_blank">please click</a></p>
 
     </div>
+   </div>
   );
 }
 

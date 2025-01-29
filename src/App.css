@@ -216,53 +216,117 @@ h2 {
   }
 }
 
+.loginpage{
+  background-color: #282a36;
+  height: 100%;
+  width: 100%;
+}
 
-
-
-
-
-
+/* Container Styling */
 .login-container {
   max-width: 400px;
   margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+  padding: 30px;
+  background-color: #2f2f2f;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
 }
 
-.login-form .form-group {
-  margin-bottom: 15px;
+/* Heading Styling */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ffffff;
+  font-size: 24px;
 }
 
-.login-form label {
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Label Styling */
+.form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-size: 14px;
 }
 
-.login-form input {
+/* Input Fields Styling */
+.form-group input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
 }
 
+.form-group input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.form-group input::placeholder {
+  color: #888;
+}
+
+/* Login Button Styling */
 .login-button {
   width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+  padding: 12px;
+  background-color: #4a90e2;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .login-button:hover {
-  background-color: #0056b3;
+  background-color: #357abd;
 }
 
+.login-button:active {
+  transform: scale(0.98);
+}
 
+/* Register Link Paragraph */
+.login-container p {
+  margin-top: 20px;
+  text-align: center;
+  color: #cccccc;
+  font-size: 14px;
+}
+
+/* Link Styling */
+.login-container a {
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-container a:hover {
+  color: #357abd;
+  text-decoration: underline;
+}
+
+/* Focus States for Accessibility */
+:focus {
+  outline: none;
+}
+
+/* Error State for Inputs */
+.form-group input.error {
+  border-color: #ff4d4d;
+}
 
 
 
