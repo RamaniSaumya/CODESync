@@ -150,16 +150,25 @@ footer a {
   color: #4aed88;
 }
 
+.register-main{
+  background-color: #1c1e29;
+  display: flex;
+  color: rgb(255, 255, 255);
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 .registration-container {
-  max-width: 400px;
+  border-radius: 4%;
+  width: 450px; 
+  /* max-width: 400px; */
   margin: 50px auto;
-  padding: 20px;
-  padding-top: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
+  /* margin-left: 50px; */
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1); /* Transparent White */
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: #ffffff; /* White */
 }
 
 .registration-form .form-group {
@@ -179,6 +188,9 @@ footer a {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
+}
+.register-h2{
+  color: #f8fbff;
 }
 
 .register-button {
@@ -217,20 +229,38 @@ h2 {
 }
 
 .loginpage{
-  background-color: #282a36;
-  height: 100%;
-  width: 100%;
+  background: linear-gradient(to left, 
+  rgb(57, 56, 54), 
+  rgb(85, 81, 81)
+);
+background-size: 200% 200%;
+animation: gradientAnimation 6s ease-in-out infinite alternate, 
+           subtleBlur 3s ease-in-out infinite alternate;
+ /* Animation duration and timing function */
+  /* background-color: #71778c; */
+  /* height: 100%; */
+  height: 100vh;
+  margin-top: 0%;
+  display: flex;
+  color: rgb(25, 43, 59);
+  align-items: center;
+  justify-content: center;
+  /* align-items: center; */
+  /* width: 100%; */
 }
 
 /* Container Styling */
 .login-container {
-  max-width: 400px;
+  border-radius: 4%;
+  width: 450px;
+  /* max-width: 400px; */
   margin: 50px auto;
+  /* margin-left: 50px; */
   padding: 30px;
-  background-color: #2f2f2f;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1); /* Transparent White */
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: #ffffff; /* White */
 }
 
 /* Heading Styling */
@@ -256,7 +286,7 @@ h2 {
 
 /* Input Fields Styling */
 .form-group input {
-  width: 100%;
+  width: 93%;
   padding: 12px;
   border: 1px solid #333;
   border-radius: 6px;
@@ -268,8 +298,8 @@ h2 {
 
 .form-group input:focus {
   outline: none;
-  border-color: #4a90e2;
-  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  border-color: #5fa0eb;
+  box-shadow: 0 0 0 2px rgba(122, 171, 226, 0.2);
 }
 
 .form-group input::placeholder {
@@ -302,19 +332,19 @@ h2 {
 .login-container p {
   margin-top: 20px;
   text-align: center;
-  color: #cccccc;
+  color: #ffffff;
   font-size: 14px;
 }
 
 /* Link Styling */
 .login-container a {
-  color: #4a90e2;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .login-container a:hover {
-  color: #357abd;
+  color: #e7f30e;
   text-decoration: underline;
 }
 
@@ -365,4 +395,3 @@ h2 {
 .leaveBtn:hover {
   background-color: aquamarine;
 }
-

@@ -59,7 +59,7 @@ function LoginPage() {
         </div>
         <button type="submit" className="login-button">Login</button>
       </form>
-      <p>To register the user, <a href="http://localhost:3000/register" target="_blank">please click</a></p>
+      <p>To register the user, <a href="http://localhost:3000/register" target="_blank"><u>Please Click</u></a></p>
 
     </div>
    </div>
